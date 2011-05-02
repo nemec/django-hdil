@@ -1,0 +1,15 @@
+{% extends "hdil/base.html" %}
+
+{% block content %}
+
+<div id="root">
+  {% for story in news_snippets %}
+    <div class="story">
+      <b>{{ story.title }}:</b><br />
+      {{ story.pub_date }}
+      <p>{{ story.data }}</p>
+    </div>
+  {% endfor %}
+</main>
+
+{% endblock %}

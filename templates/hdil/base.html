@@ -1,0 +1,40 @@
+{% load tags %}
+{% load url from future %}
+
+{% url "index" as index %}
+{% url "news" as news %}
+{% url "about" as about %}
+
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style/style.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}scripts/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}scripts/notifier.js"></script>
+    {% block header %} {% endblock %}
+  </head>
+
+  <body>
+    <div id="root">
+      <div id="header">How Do I Look?</div>
+      <div id="nav">
+        <ul>
+          <li><a class="{% active request index %}" href="{{ index }}">Home</a></li>
+          <li><a class="{% active request news %}" href="{{ news }}">News</a></li>
+          <li><a class="{% active request about %}" href="{{ about }}">About</a></li>
+        </ul>
+      </div>
+        <div>
+          <ul id="messages">
+          </ul>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+  
+      <div id="footer">
+        &copy;2011 Daniel Nemec
+      </div>
+    </div>
+  </body>
+</html

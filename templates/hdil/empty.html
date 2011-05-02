@@ -1,0 +1,26 @@
+{% extends "hdil/base.html" %}
+
+{% block content %}
+
+  <div class="exp">
+    <h1>
+      Sorry!
+    </h1>
+
+    <div class="bigtext">
+      It looks like there are no images uploaded at the moment. <br />
+      Please refresh the page or submit your own image for consideration.
+    </div>
+  </div>
+
+  <div class="upload">
+    <form enctype="multipart/form-data" method="POST" action="/core/upload/">
+      <!--<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
+      Choose a file to upload: <input name="uploadedfile" type="file" />-->
+      {% csrf_token %}
+      {{ form }}
+      <input class="button" type="submit" value="Upload File" />
+    </form>
+  </div>
+
+{% endblock %}
